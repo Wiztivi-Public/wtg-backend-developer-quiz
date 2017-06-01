@@ -1,3 +1,3 @@
 # wtg-backend-developer-quiz
 
-Clément was here
+ClÃ©ment was here
