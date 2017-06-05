@@ -63,10 +63,45 @@
         
         
       <div class="page-header">
-        <h1>Wells</h1>
+        <h2><span class="label label-warning">Q1</span> Code review : Write your comments on this function</h2>
       </div>
       <div class="well">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+		
+		<p>Someone in your team wrote as part of one of his tasks and you have been assigned for code review.</p>
+		<pre><code>
+			public function functiontogetTheNickname($user, $slot = NULL, $returnAllData, $includeDeletedNicknames = NULL) {
+				if($returnAllData == true){
+					if($includeDeletedNicknames) {
+						$nicknameData = $this->databaseHandle->getNickname($user, $slot, NULL, $includeDeletedNicknames);
+					} else {
+						$nicknameData = $this->databaseHandle->getNickname($user, $slot);
+					}
+					
+				} else {
+					if($includeDeletedNicknames) {
+						$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'),$includeDeletedNicknames);
+					}  else {
+						$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'));
+					}
+				}
+				
+				foreach($nicknameData as $key => $value){
+				$nicknameData[$key] = Toolbox::unEscape($value);
+				}
+				
+				return $nicknameData;
+			}
+		</code></pre>
+		
+
+      </div>
+      
+      <div class="page-header">
+        <h2><span class="label label-warning">Q10</span> Coding task</h2>
+      </div>
+      <div class="well">
+		<p>Go to the following codepen: <a href="https://codepen.io/clouarn/pen/PmrRPM">https://codepen.io/clouarn/pen/PmrRPM</a>. See the code comments for the assignment. Remember to <em>click save</em> and return the url for the codepen you created.</p>
+	
       </div>
 
     </div> <!-- /container -->
