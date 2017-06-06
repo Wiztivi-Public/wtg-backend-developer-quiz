@@ -57,28 +57,28 @@
 		
 		<p>Someone in your team wrote the following piece of code as part of one of his tasks and you have been assigned for code review.</p>
 		<pre><code>
-			public function functiontogetTheNickname($user, $slot = NULL, $returnAllData, $includeDeletedNicknames = NULL) {
-				if($returnAllData == true){
-					if($includeDeletedNicknames) {
-						$nicknameData = $this->databaseHandle->getNickname($user, $slot, NULL, $includeDeletedNicknames);
-					} else {
-						$nicknameData = $this->databaseHandle->getNickname($user, $slot);
-					}
-					
-				} else {
-					if($includeDeletedNicknames) {
-						$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'),$includeDeletedNicknames);
-					}  else {
-						$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'));
-					}
-				}
-				
-				foreach($nicknameData as $key => $value){
-				$nicknameData[$key] = Toolbox::unEscape($value);
-				}
-				
-				return $nicknameData;
-			}
+public function functiontogetTheNickname($user, $slot = NULL, $returnAllData, $includeDeletedNicknames = NULL) {
+	if($returnAllData == true){
+		if($includeDeletedNicknames) {
+			$nicknameData = $this->databaseHandle->getNickname($user, $slot, NULL, $includeDeletedNicknames);
+		} else {
+			$nicknameData = $this->databaseHandle->getNickname($user, $slot);
+		}
+		
+	} else {
+		if($includeDeletedNicknames) {
+			$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'),$includeDeletedNicknames);
+		}  else {
+			$nicknameData = $this->databaseHandle->getNickname($user,$slot,array('stringValue'));
+		}
+	}
+	
+	foreach($nicknameData as $key => $value){
+	$nicknameData[$key] = Toolbox::unEscape($value);
+	}
+	
+	return $nicknameData;
+}
 		</code></pre>
 		
 
