@@ -38,18 +38,19 @@
         <h2>Wiztivi Gaming - Backend Candidate Quizz</h2>
          <ul>
 			<li>Dear applicant, we would like you to answer these few questions as well as the code exercise in order to judge your coding style, your current level and your capacity of analysis.<br>
-             Most of the following questions don't have ONE exact answer but they will help us understanding your mindset.</li>
+             Most of the questions don't have ONE exact answer but they will help us understanding your mindset.</li>
              <li>Answer with bullet points:
 			<ul>
 				<li>Single sentence per bullet point</li>
-				<li>Max 4 per question</li>
+				<li>Max 4 bullet points per question</li>
 			</ul>
 			</li>
-			<li>Return your answers to gamingjobs@wiztivi.com in a file named as such: yourname_quiz</li>
-             <li>Good luck!</li>
+			<li>Return your answers to gamingjobs@wiztivi.com in a file named after the following pattern: yourname_quiz</li>
+            <li>Good luck!</li>
           </ul>
       </div>      
-        
+
+<!-- QUESTION 1 -->      
       <div class="page-header">
         <h2><span class="label label-warning">Q1</span> Code review : Write your comments on this function</h2>
       </div>
@@ -80,17 +81,284 @@ public function functiontogetTheNickname($user, $slot = NULL, $returnAllData, $i
 	return $nicknameData;
 }
 		</code></pre>
-		
+      </div>
+<!-- QUESTION 1 -->
 
+<!-- QUESTION 2 -->     
+      <div class="page-header">
+        <h2><span class="label label-warning">Q2</span> Front end login: Could you propose a fix for this login script?</h2>
+      </div>
+      <div class="well">
+		
+		<pre><code>
+$login = $_POST['login'];
+$password = $_POST['password'];
+
+if($login == 'admin' && $password == 'ferefoiej'){
+	header('Location: /home.html');
+}
+
+header('Location: /login_form.html'); 
+		</code></pre>
+      </div>
+<!-- QUESTION 2 --> 
+
+<!-- QUESTION 3 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q3</span> What problems do you see with this API?</h2>
+      </div>
+      <div class="well">
+		
+		<p>Your colleague sent you the specs for a service he is about to provide you:</p>
+		<pre><code>
+GET /surveys
+POST /surveys/new
+POST /surveys/{id}/update
+POST /surveys/{id}/rename
+DELETE /surveys/?id={id}
+PUT /surveys/{id}/addQuestion
+POST /surveys/{id}/updateQuestion
+DELETE /surveys/{id}/question/{id}/delete
+		</code></pre>
+      </div>
+<!-- QUESTION 3 -->
+
+<!-- QUESTION 4 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q4</span> Adding a user: Why is the following design flawed?</h2>
+      </div>
+      <div class="well">
+		
+		<p>This is the table schema</p>
+		<pre><code>
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+		</code></pre>
+		
+		<p>This is the login script</p>
+		<pre><code>
+$login = $_POST['login'];
+$password = $_POST['password'];
+$user = new User();
+$user->initialize($login, $password);
+		</code></pre>
+		
+		<p>This is the function in the User class</p>
+		<pre><code>
+public function initialize($login, $password) {
+	if(!empty($this->getUser($login))) {
+		return "A user with the same login is already exisiting";
+	}
+	
+	$query = "INSERT INTO user('login', 'password') VALUES ('$login', '$password')";
+	$databaseQuery = new DatabaseQuery($query, $this->connection);
+	
+	$this->log->info("Added a user with login:'$login' and password:'$password');
+	
+	return SUCCESS;
+}
+		</code></pre>
+		
+      </div>
+<!-- QUESTION 4 -->
+
+<!-- QUESTION 5 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q5</span> What are the value of $a and $b ? Explain why it behaves so.</h2>
+      </div>
+      <div class="well">
+		
+		<pre><code>
+$a = 1;
+$b = 1;
+
+decR(incR($a));
+dec(inc($b));
+
+function incR(&$d){
+	$d++;
+}
+
+function decR(&$d){
+	$d--;
+}
+
+function inc($d){
+	$d++;
+	return $d;
+}
+
+
+function dec($d){
+	$d--;
+}
+		</code></pre>
+      </div>
+<!-- QUESTION 5 -->
+
+<!-- QUESTION 6 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q6</span> Object Oriented and coding principles: What problems do you see in the code below?</h2>
+      </div>
+      <div class="well">
+		
+		<p>Your colleague sent you the specs for a service he is about to provide you:</p>
+		<pre><code>
+$user = new User('John', 'Doe');
+
+$user->adress = '102 micile fixe';
+
+echo $user->firstName;
+echo $user->lastName;
+		</code></pre>
+      </div>
+<!-- QUESTION 6 -->
+
+<!-- QUESTION 7 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q7</span> The following code provokes a division by 0 error. With Exception, display an error message with the line of the error.</h2>
+      </div>
+      <div class="well">
+		
+		<pre><code>
+<?php
+0/0;
+?>
+		</code></pre>
+      </div>
+<!-- QUESTION 7 -->
+
+<!-- QUESTION 8 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q8</span> Database schema: Analyse this xml schema</h2>
+      </div>
+      <div class="well">
+		
+		<pre><code>
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `last_login_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `person` (`first_name`, `last_name`),
+  UNIQUE KEY `login` (`first_name`, `password`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+		</code></pre>
+		
+	<p>This table contains a few millions lines after a year of use.
+	The schema is used mostly as such:
+	
+	Access of the users:
+	<pre><code>
+SELECT * FROM user WHERE first_name='{$firstName}' AND password='{$password}'
+	</code></pre>
+	
+	Real time KPI:
+	<pre><code>
+SELECT count(id) FROM user WHERE last_login_date > {$currentDateMinus1Hour}
+SELECT count(id) FROM user WHERE last_login_date > {$currentDayAt0}
+	</code></pre>
+	</p>
+      </div>
+<!-- QUESTION 8 -->
+
+<!-- QUESTION 9 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q9</span> Do you see anything wrong with this function?</h2>
+      </div>
+      <div class="well">
+		
+		<pre><code>
+function increaseCredit($amount, $isCredit) {
+  if (!$isCredit) {
+    $this.debitBalance += amount;
+  } else {
+    $this.creditBalance += amount;
+  }
+};
+		</code></pre>
+      </div>
+<!-- QUESTION 9 -->
+
+<!-- QUESTION 10 -->
+      <div class="page-header">
+        <h2><span class="label label-warning">Q10</span> Effectuer une requete SQL entre ces deux tables afin de récupérer la liste de tous les articles et de leurs catégories respectives:</h2>
+      </div>
+      <div class="well">
+		<p>Structure de la table `post`</p>
+		<pre><code>
+CREATE TABLE IF NOT EXISTS `post` (
+  `post_id` int(11) NOT NULL auto_increment,
+  `post_title` varchar(50) NOT NULL,
+  `category_id` int(11) default NULL,
+  PRIMARY KEY  (`post_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+		</code></pre>
+		
+		<p>Structure de la table `post`</p>
+		<pre><code>
+CREATE TABLE IF NOT EXISTS `post` (
+  `post_id` int(11) NOT NULL auto_increment,
+  `post_title` varchar(50) NOT NULL,
+  `category_id` int(11) default NULL,
+  PRIMARY KEY  (`post_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+		</code></pre>
+		
+		<p>Contenu de la table `post`</p>
+		<pre><code>
+INSERT INTO `post` (`post_id`, `post_title`, `category_id`) VALUES
+(1, 'Bienvenue', 1),
+(2, 'Settimeout Javascript', 2),
+(3, 'Sprites CSS', 3),
+(4, 'Firebug', 2),
+(5, 'Google Apps', NULL),
+(6, 'Colorisation Photoshop', 3),
+(7, 'Base photographie', 5),
+(8, 'Jointure SQL', 4),
+(9, 'Article top secret', NULL);
+		</code></pre>
       </div>
       
+      	<p>Structure de la table `category`</p>
+		<pre><code>
+CREATE TABLE IF NOT EXISTS `category` (
+  `category_id` int(11) NOT NULL auto_increment,
+  `category_name` varchar(50) NOT NULL,
+  PRIMARY KEY  (`category_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+		</code></pre>
+		
+		<p>Contenu de la table `category`</p>
+		<pre><code>
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(1, 'News'),
+(2, 'Javascript'),
+(3, 'Graphisme'),
+(4, 'SQL'),
+(5, 'Photographie'),
+(6, 'PHP');
+		</code></pre>
+      </div>
+<!-- QUESTION 10 -->
+
+<!-- QUESTION 11 -->
       <div class="page-header">
-        <h2><span class="label label-warning">Q10</span> Coding task</h2>
+        <h2><span class="label label-warning">Q11</span> Coding task</h2>
       </div>
       <div class="well">
 		<p>Go to the following codepen: <a href="https://codepen.io/clouarn/pen/PmrRPM">https://codepen.io/clouarn/pen/PmrRPM</a>. See the code comments for the assignment. Remember to <em>click save</em> and return the url for the codepen you created.</p>
 	
       </div>
+<!-- QUESTION 11 -->
+
 
     </div> <!-- /container -->
 
