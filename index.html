@@ -289,17 +289,7 @@ function increaseCredit($amount, $isCredit) {
       <div class="page-header">
         <h2><span class="label label-warning">Q10</span> Effectuer une requete SQL entre ces deux tables afin de récupérer la liste de tous les articles et de leurs catégories respectives:</h2>
       </div>
-      <div class="well">
-		<p>Structure de la table `post`</p>
-		<pre><code>
-CREATE TABLE IF NOT EXISTS `post` (
-  `post_id` int(11) NOT NULL auto_increment,
-  `post_title` varchar(50) NOT NULL,
-  `category_id` int(11) default NULL,
-  PRIMARY KEY  (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
-		</code></pre>
-		
+      <div class="well">	
 		<p>Structure de la table `post`</p>
 		<pre><code>
 CREATE TABLE IF NOT EXISTS `post` (
