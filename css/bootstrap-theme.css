@@ -562,6 +562,8 @@ background-color: #abd9f4;
 }
 .well {
   background-color: inherit;
+  border: none;
+  border-shadow: none;
 }
 
 .jumbotron {
