@@ -564,6 +564,7 @@ background-color: #abd9f4;
   background-color: inherit;
   border: none;
   border-shadow: none;
+  box-shadow: none;
 }
 
 body {
