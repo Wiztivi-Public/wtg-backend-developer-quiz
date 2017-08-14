@@ -287,10 +287,10 @@ function increaseCredit($amount, $isCredit) {
 
 <!-- QUESTION 10 -->
       <div class="page-header">
-        <h2><span class="label label-warning">Q10</span> Effectuer une requete SQL entre ces deux tables afin de récupérer la liste de tous les articles et de leurs catégories respectives:</h2>
+        <h2><span class="label label-warning">Q10</span> Propose a SQL query between these 2 tables in order to recover the list of all the articles and their categories:</h2>
       </div>
       <div class="well">	
-		<p>Structure de la table `post`</p>
+		<p>Structure of the table `post`</p>
 		<pre><code>
 CREATE TABLE IF NOT EXISTS `post` (
   `post_id` int(11) NOT NULL auto_increment,
@@ -300,21 +300,21 @@ CREATE TABLE IF NOT EXISTS `post` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 		</code></pre>
 		
-		<p>Contenu de la table `post`</p>
+		<p>Content of the table `post`</p>
 		<pre><code>
 INSERT INTO `post` (`post_id`, `post_title`, `category_id`) VALUES
-(1, 'Bienvenue', 1),
+(1, 'Welcome', 1),
 (2, 'Settimeout Javascript', 2),
 (3, 'Sprites CSS', 3),
 (4, 'Firebug', 2),
 (5, 'Google Apps', NULL),
 (6, 'Colorisation Photoshop', 3),
-(7, 'Base photographie', 5),
-(8, 'Jointure SQL', 4),
-(9, 'Article top secret', NULL);
+(7, 'Base photography', 5),
+(8, 'Join SQL', 4),
+(9, 'Top secret article', NULL);
 		</code></pre>
       
-		<p>Structure de la table `category`</p>
+		<p>Structure of the table `category`</p>
 		<pre><code>
 CREATE TABLE IF NOT EXISTS `category` (
   `category_id` int(11) NOT NULL auto_increment,
@@ -323,14 +323,14 @@ CREATE TABLE IF NOT EXISTS `category` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 		</code></pre>
 		
-		<p>Contenu de la table `category`</p>
+		<p>Content of the table `category`</p>
 		<pre><code>
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
 (1, 'News'),
 (2, 'Javascript'),
-(3, 'Graphisme'),
+(3, 'Graphics'),
 (4, 'SQL'),
-(5, 'Photographie'),
+(5, 'Photography'),
 (6, 'PHP');
 		</code></pre>
       </div>
